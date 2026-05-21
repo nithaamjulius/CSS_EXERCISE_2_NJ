@@ -1,0 +1,135 @@
+/* General page setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e2ac6e;
+  color: rgb(99, 63, 21);
+  line-height: 1.5;
+}
+
+/* Main layout */
+#main_layout {
+  width: min(1200px, 95%);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Image Gallery */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Flexbox for filter buttons */
+.filter_buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filter_buttons button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #f7dfba;
+  cursor: pointer;
+  transition: background-color 0.3s ease tranform 0.2s ease;
+}
+
+.filter_buttons button:hover {
+  background: #c69761;
+  transform: translateY(-4px);
+}
+
+.filter_buttons:active {
+  background: #e2ac6e;
+  color: #754c0ed7;
+}
+
+/* Grid incorporated in Main Gallery */
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  transition: all 0.4s ease;
+}
+
+.image_card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  display: grid;
+  gap: 10px;
+  transition:
+    tramsform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Hover effects on cards */
+.image_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.image_grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.image_grid h3 {
+  font-size: 1.1rem;
+}
+
+.image_grid p,
+.image_grid span {
+  font-size: 0.95rem;
+}
+
+/* Filtering animations */
+.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  display: none;
+}
+
+.show {
+  opacity: 1;
+  transform: scale(1);
+  display: grid;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .image_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .image_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter_buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter_buttons button {
+    width: 100%;
+  }
+}
